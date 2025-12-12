@@ -1,0 +1,10 @@
+Classes
+| Snake.js
+| LocalStorage.js
+assets
+| main.css
+utilities
+| game.js
+| utilities.js
+main.js
+index.html
