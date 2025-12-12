@@ -1,5 +1,3 @@
-const canvas = document.querySelector("canvas");
+const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
-
-ctx.fillStyle = "green";
-ctx.fillRect(0, 0, ctx.height, ctx.width);
+//b97eea

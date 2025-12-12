@@ -4,11 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Snake</title>
-    <script src="canvas.js"></script>
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="canvas.js" defer></script>
+    <script src="utilities/darkMode.js" defer></script>
 </head>
 
 <body>
-    <canvas height="450" width="450"></canvas>
+    <header>
+        <nav>
+            <p>SNAKE 2099</p>
+            <div id="darkModeBtn" class="toggle">
+                <i class="fa-regular fa-moon moon-icon"></i>
+                <i class="fa-regular fa-sun sun-icon"></i>
+                <div class="toggle-ball"></div>
+            </div>
+        </nav>
+    </header>
+    <div id="container">
+        <canvas id="canvas" height="450" width="450"></canvas>
+        <button id="startBtn">Jouer</button>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,103 @@
+body {
+  background-color: #050b2b;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
+}
+body header {
+  width: 100%;
+  height: 10vh;
+  background-color: #0c154a;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+body header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+body header nav p {
+  font-size: 2rem;
+  margin: auto 20px;
+}
+body header nav #darkModeBtn {
+  position: relative;
+  width: 78px;
+  height: 36px;
+  border-radius: 50px;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.35s ease;
+  box-shadow: 0 0 8px rgba(255, 45, 242, 0.4);
+  background: rgb(190.5, 241.8984375, 255);
+}
+body header nav #darkModeBtn i {
+  font-size: 18px;
+  width: 50%;
+  text-align: center;
+  pointer-events: none;
+  transition: color 0.3s ease, filter 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 6px rgba(63, 216, 255, 0.6);
+}
+body header nav #darkModeBtn .toggle-ball {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.25, 1);
+  box-shadow: 0 0 8px rgba(63, 216, 255, 0.7), 0 0 15px rgba(63, 216, 255, 0.9), inset 0 0 10px rgba(63, 216, 255, 0.5);
+}
+body header nav #darkModeBtn.dark {
+  background: rgba(255, 45, 242, 0.25);
+  box-shadow: 0 0 12px rgba(255, 45, 242, 0.8);
+}
+body header nav #darkModeBtn.dark .toggle-ball {
+  transform: translateX(42px);
+  box-shadow: 0 0 10px rgba(255, 45, 242, 0.7), 0 0 20px #ff2df2, inset 0 0 15px rgba(255, 45, 242, 0.7);
+}
+body header nav #darkModeBtn.dark .moon-icon {
+  color: #ff2df2;
+  font-weight: 900;
+  text-shadow: 0 0 8px #ff2df2;
+}
+body header nav #darkModeBtn.dark .sun-icon {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  text-shadow: none;
+}
+body header nav #darkModeBtn.light {
+  background: rgba(63, 216, 255, 0.25);
+  box-shadow: 0 0 12px rgba(63, 216, 255, 0.8);
+}
+body header nav #darkModeBtn.light .sun-icon {
+  color: #3fd8ff;
+  font-weight: 900;
+  text-shadow: 0 0 8px #3fd8ff;
+}
+body header nav #darkModeBtn.light .moon-icon {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  text-shadow: none;
+}
+body #container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+body #container canvas {
+  position: relative;
+  width: 70vh;
+  height: auto;
+}/*# sourceMappingURL=style.css.map */

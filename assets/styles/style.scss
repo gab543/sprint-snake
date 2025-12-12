@@ -1,0 +1,155 @@
+// // <weight>: Use a value from 400 to 900
+// // <uniquifier>: Use a unique and descriptive class name
+
+// .orbitron-<uniquifier> {
+//   font-family: "Orbitron", sans-serif;
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+// }
+
+
+// ===== Variables Néon =====
+$neon-pink: #ff2df2;
+$neon-blue: #3fd8ff;
+$neon-bg-dark: #0b0016;
+$neon-bg-light: #ffffff;
+$ball-size: 36px;
+$toggle-width: 78px;
+$toggle-height: 36px;
+
+
+body {
+    background-color: #050b2b;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+
+    // -------------HEADER AND NAVBAR STYLES -------------
+    header {
+        width: 100%;
+        height: 10vh;
+        background-color: #0c154a;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            p {
+                font-size: 2rem;
+                margin: auto 20px;
+            }
+
+            // ===== Toggle Container =====
+            #darkModeBtn {
+                position: relative;
+                width: $toggle-width;
+                height: $toggle-height;
+                border-radius: 50px;
+                padding: 4px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: .35s ease;
+
+                // Glow léger
+                box-shadow: 0 0 8px rgba($neon-pink, 0.4);
+
+                // Mode clair par défaut
+                background: lighten($neon-blue, 25%);
+
+                i {
+                    font-size: 18px;
+                    width: 50%;
+                    text-align: center;
+                    pointer-events: none;
+                    transition: color .3s ease, filter .3s ease;
+                    color: rgba(255, 255, 255, 0.7);
+                    text-shadow: 0 0 6px rgba($neon-blue, .6);
+                }
+
+                // ===== La boule =====
+                .toggle-ball {
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    width: $ball-size;
+                    height: $ball-size;
+                    background: white;
+                    border-radius: 50%;
+                    transition: transform .4s cubic-bezier(.4, 0, .25, 1);
+                    box-shadow:
+                        0 0 8px rgba($neon-blue, .7),
+                        0 0 15px rgba($neon-blue, .9),
+                        inset 0 0 10px rgba($neon-blue, .5);
+                }
+
+                // ===== Mode DARK =====
+                &.dark {
+                    background: rgba($neon-pink, .25);
+                    box-shadow: 0 0 12px rgba($neon-pink, .8);
+
+                    .toggle-ball {
+                        transform: translateX($toggle-width - $ball-size);
+                        box-shadow:
+                            0 0 10px rgba($neon-pink, .7),
+                            0 0 20px rgba($neon-pink, 1),
+                            inset 0 0 15px rgba($neon-pink, .7);
+                    }
+
+                    .moon-icon {
+                        color: $neon-pink;
+                        font-weight: 900;
+                        text-shadow: 0 0 8px rgba($neon-pink, 1);
+                    }
+
+                    .sun-icon {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-weight: 400;
+                        text-shadow: none;
+                    }
+                }
+
+                // ===== Mode LIGHT =====
+                &.light {
+                    background: rgba($neon-blue, .25);
+                    box-shadow: 0 0 12px rgba($neon-blue, .8);
+
+                    .sun-icon {
+                        color: $neon-blue;
+                        font-weight: 900;
+                        text-shadow: 0 0 8px rgba($neon-blue, 1);
+                    }
+
+                    .moon-icon {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-weight: 400;
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
+    //-------------CANVAS CONTAINER STYLES -------------
+    #container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+        canvas {
+            position: relative;
+            width: 70vh;
+            height: auto;
+        }
+    }
+}
