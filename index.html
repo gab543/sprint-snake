@@ -3,20 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Snake</title>
+    <title>Snake 2099</title>
     <link rel="stylesheet" href="assets/styles/style.css">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Scripts -->
     <script src="canvas.js" defer></script>
     <script src="utilities/darkMode.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <p>SNAKE 2099</p>
+
+    <!-- HEADER -->
+    <header class="top-bar">
+        <nav class="top-nav">
+            <div class="logo">
+                <span class="accent">SNAKE</span> 2099
+            </div>
             <div id="darkModeBtn" class="toggle">
                 <i class="fa-regular fa-moon moon-icon"></i>
                 <i class="fa-regular fa-sun sun-icon"></i>
@@ -24,10 +31,63 @@
             </div>
         </nav>
     </header>
-    <div id="container">
-        <canvas id="canvas" height="450" width="450"></canvas>
-        <button id="startBtn">Jouer</button>
-    </div>
+
+    <!-- MAIN LAYOUT -->
+    <main class="hud-layout">
+        <!-- LEFT PANEL -->
+        <aside class="panel panel-left">
+            <h2>Menu</h2>
+            <ul class="menu-list">
+                <li>Nouvelle partie</li>
+                <li>Difficulté</li>
+                <li>Vitesse</li>
+                <li>Mode</li>
+            </ul>
+            <div class="panel-section">
+                <h3>Stats</h3>
+                <p>Score : <span id="score">0</span></p>
+                <p>Niveau : <span id="level">1</span></p>
+            </div>
+        </aside>
+
+        <!-- CENTER GAME -->
+        <section class="game-center">
+            <div class="game-score">
+                <h1>Score: <span id="gameScore">0</span></h1>
+            </div>
+            <div class="game-frame">
+                <canvas id="canvas" width="450" height="450"></canvas>
+            </div>
+            <div class="game-controls">
+                <button id="startBtn" class="neon-btn">Jouer</button>
+            </div>
+        </section>
+        <!-- RIGHT PANEL -->
+        <aside class="panel panel-right">
+            <h2>Système</h2>
+
+            <div class="panel-section">
+                <p>Mode : <span>Arcade</span></p>
+                <p>État : <span class="status-online">Online</span></p>
+            </div>
+
+            <div class="panel-section">
+                <h3>Meilleurs scores</h3>
+                <ol class="highscores">
+                    <li>1200</li>
+                    <li>980</li>
+                    <li>760</li>
+                </ol>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- FOOTER (optionnel) -->
+    <footer class="hud-footer">
+        <p>© 2099 - Snake Protocol</p>
+    </footer>
+
 </body>
 
 </html>

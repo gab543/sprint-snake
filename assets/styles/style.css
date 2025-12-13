@@ -1,27 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #050b2b;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   color: #ffffff;
   font-family: "Orbitron", sans-serif;
+  min-height: 100vh;
 }
 body header {
   width: 100%;
   height: 10vh;
-  background-color: #0c154a;
-  margin-bottom: 20px;
+  background: linear-gradient(90deg, rgb(8.4418604651, 14.773255814, 52.0581395349), rgb(15.5581395349, 27.226744186, 95.9418604651));
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(63, 216, 255, 0.3);
 }
 body header nav {
+  width: 100%;
+  padding: 0 30px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 body header nav p {
   font-size: 2rem;
-  margin: auto 20px;
+  letter-spacing: 3px;
+  margin: 0;
+  color: #3fd8ff;
+  text-shadow: 0 0 6px rgba(63, 216, 255, 0.8), 0 0 12px rgba(63, 216, 255, 0.6);
 }
 body header nav #darkModeBtn {
   position: relative;
@@ -42,62 +53,155 @@ body header nav #darkModeBtn i {
   width: 50%;
   text-align: center;
   pointer-events: none;
-  transition: color 0.3s ease, filter 0.3s ease;
-  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s ease;
+  color: #050b2b;
   text-shadow: 0 0 6px rgba(63, 216, 255, 0.6);
 }
 body header nav #darkModeBtn .toggle-ball {
+  background: #050b2b;
   position: absolute;
   top: 4px;
   left: 4px;
-  width: 36px;
-  height: 36px;
-  background: white;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.25, 1);
-  box-shadow: 0 0 8px rgba(63, 216, 255, 0.7), 0 0 15px rgba(63, 216, 255, 0.9), inset 0 0 10px rgba(63, 216, 255, 0.5);
+  box-shadow: 0 0 8px rgba(63, 216, 255, 0.7), inset 0 0 10px rgba(63, 216, 255, 0.5);
 }
 body header nav #darkModeBtn.dark {
   background: rgba(255, 45, 242, 0.25);
-  box-shadow: 0 0 12px rgba(255, 45, 242, 0.8);
+}
+body header nav #darkModeBtn.dark i {
+  color: rgba(255, 255, 255, 0.7);
 }
 body header nav #darkModeBtn.dark .toggle-ball {
+  background: white;
   transform: translateX(42px);
-  box-shadow: 0 0 10px rgba(255, 45, 242, 0.7), 0 0 20px #ff2df2, inset 0 0 15px rgba(255, 45, 242, 0.7);
+  box-shadow: 0 0 12px rgba(255, 45, 242, 0.9), inset 0 0 12px rgba(255, 45, 242, 0.7);
 }
-body header nav #darkModeBtn.dark .moon-icon {
+body .hud-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  gap: 20px;
+  padding: 20px;
+  height: 90vh;
+}
+body .panel {
+  background: linear-gradient(180deg, rgba(12, 21, 74, 0.95), rgba(12, 21, 74, 0.85));
+  border: 1px solid rgba(63, 216, 255, 0.4);
+  padding: 20px;
+  box-shadow: inset 0 0 20px rgba(63, 216, 255, 0.15), 0 0 15px rgba(63, 216, 255, 0.25);
+  position: relative;
+}
+body .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 45, 242, 0.4);
+  clip-path: polygon(0 0, 95% 0, 100% 10%, 100% 100%, 5% 100%, 0 90%);
+  pointer-events: none;
+}
+body .panel h2,
+body .panel h3 {
   color: #ff2df2;
-  font-weight: 900;
-  text-shadow: 0 0 8px #ff2df2;
+  margin-top: 0;
+  text-shadow: 0 0 8px rgba(255, 45, 242, 0.8);
 }
-body header nav #darkModeBtn.dark .sun-icon {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 400;
-  text-shadow: none;
-}
-body header nav #darkModeBtn.light {
-  background: rgba(63, 216, 255, 0.25);
-  box-shadow: 0 0 12px rgba(63, 216, 255, 0.8);
-}
-body header nav #darkModeBtn.light .sun-icon {
-  color: #3fd8ff;
-  font-weight: 900;
-  text-shadow: 0 0 8px #3fd8ff;
-}
-body header nav #darkModeBtn.light .moon-icon {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 400;
-  text-shadow: none;
-}
-body #container {
+body .game-center {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
 }
-body #container canvas {
-  position: relative;
-  width: 70vh;
-  height: auto;
+body .game-score {
+  margin-bottom: 15px;
+}
+body .game-score h1 {
+  font-size: 2rem;
+  color: #3fd8ff;
+  text-shadow: 0 0 8px rgba(63, 216, 255, 0.8), 0 0 16px rgba(63, 216, 255, 0.6);
+}
+body .game-score h1 span {
+  font-weight: normal;
+}
+body .game-frame {
+  padding: 20px;
+  border: 2px solid #3fd8ff;
+  box-shadow: 0 0 20px rgba(63, 216, 255, 0.7), inset 0 0 25px rgba(63, 216, 255, 0.4);
+  background: radial-gradient(circle, rgba(63, 216, 255, 0.15), transparent 70%);
+}
+body canvas {
+  width: 450px;
+  height: 450px;
+  background: #020614;
+}
+body .neon-btn {
+  margin-top: 20px;
+  padding: 12px 40px;
+  background: transparent;
+  border: 2px solid #ff2df2;
+  color: #ff2df2;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 45, 242, 0.8), inset 0 0 10px rgba(255, 45, 242, 0.4);
+  transition: 0.25s ease;
+}
+body .neon-btn:hover {
+  background: rgba(255, 45, 242, 0.15);
+  box-shadow: 0 0 20px #ff2df2, inset 0 0 20px rgba(255, 45, 242, 0.8);
+}
+
+* body.dark-mode {
+  background-color: #02010a;
+  color: #eaeaff;
+}
+* body.dark-mode header {
+  background: linear-gradient(90deg, rgb(0.1454545455, 0.0727272727, 0.7272727273), rgb(1.3255813953, 2.3197674419, 8.1744186047));
+  box-shadow: 0 0 25px rgba(255, 45, 242, 0.35);
+}
+* body.dark-mode header nav p {
+  color: #ff2df2;
+  text-shadow: 0 0 8px #ff2df2, 0 0 16px rgba(255, 45, 242, 0.8);
+}
+* body.dark-mode .hud-layout {
+  background: radial-gradient(circle at top, rgba(123, 92, 255, 0.08), transparent 60%);
+}
+* body.dark-mode .panel {
+  background: linear-gradient(180deg, rgba(5, 0, 20, 0.98), rgba(10, 2, 36, 0.9));
+  border: 1px solid rgba(255, 45, 242, 0.5);
+  box-shadow: inset 0 0 30px rgba(255, 45, 242, 0.15), 0 0 20px rgba(255, 45, 242, 0.4);
+}
+* body.dark-mode .panel::before {
+  border-color: rgba(123, 92, 255, 0.6);
+}
+* body.dark-mode .panel h2,
+* body.dark-mode .panel h3 {
+  color: #3fd8ff;
+  text-shadow: 0 0 8px rgba(63, 216, 255, 0.9), 0 0 14px rgba(63, 216, 255, 0.6);
+}
+* body.dark-mode .game-frame {
+  border-color: #ff2df2;
+  box-shadow: 0 0 25px rgba(255, 45, 242, 0.8), inset 0 0 30px rgba(255, 45, 242, 0.4);
+  background: radial-gradient(circle, rgba(255, 45, 242, 0.12), transparent 70%);
+}
+* body.dark-mode canvas {
+  background: #00000f;
+  box-shadow: inset 0 0 20px rgba(63, 216, 255, 0.15);
+}
+* body.dark-mode .neon-btn {
+  border-color: #3fd8ff;
+  color: #3fd8ff;
+  box-shadow: 0 0 12px rgba(63, 216, 255, 0.8), inset 0 0 12px rgba(63, 216, 255, 0.5);
+}
+* body.dark-mode .neon-btn:hover {
+  background: rgba(63, 216, 255, 0.15);
+  box-shadow: 0 0 25px #3fd8ff, inset 0 0 20px rgba(63, 216, 255, 0.9);
+}
+* body.dark-mode p,
+* body.dark-mode li,
+* body.dark-mode span {
+  color: #e6e6ff;
+  text-shadow: 0 0 4px rgba(123, 92, 255, 0.4);
 }/*# sourceMappingURL=style.css.map */
