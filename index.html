@@ -12,8 +12,8 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <!-- Scripts -->
-    <script src="canvas.js" defer></script>
-    <script src="utilities/darkMode.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script src="js/utilities/darkMode.js" defer></script>
 </head>
 
 <body>
@@ -43,10 +43,11 @@
                 <li>Vitesse</li>
                 <li>Mode</li>
             </ul>
-            <div class="panel-section">
-                <h3>Stats</h3>
-                <p>Score : <span id="score">0</span></p>
-                <p>Niveau : <span id="level">1</span></p>
+            <div class="panel-scores">
+                <h3>Scores récents</h3>
+                <ol id="scoresList" class="scoresList recent-scores">
+                    <!-- Scores insérés dynamiquement ici -->
+                </ol>
             </div>
         </aside>
 
@@ -62,6 +63,7 @@
                 <button id="startBtn" class="neon-btn">Jouer</button>
             </div>
         </section>
+
         <!-- RIGHT PANEL -->
         <aside class="panel panel-right">
             <h2>Système</h2>
@@ -73,7 +75,7 @@
 
             <div class="panel-section">
                 <h3>Meilleurs scores</h3>
-                <ol class="highscores">
+                <ol class="scoresList best-scores">
                     <li>1200</li>
                     <li>980</li>
                     <li>760</li>
