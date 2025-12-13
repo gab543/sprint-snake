@@ -1,0 +1,3 @@
+faire clignoter en blanc comme un flash à chaque pomme mangée 
+
+faire un fonction pour faire une pomme en canva avec une taille adaptable 
