@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <!-- Scripts -->
     <script type="module" src="js/app.js" defer></script>
+    <script src="js/utilities/popUpTutorial.js" defer></script>
     <script src="js/utilities/darkMode.js" defer></script>
 </head>
 
@@ -34,6 +35,18 @@
 
     <!-- MAIN LAYOUT -->
     <main class="hud-layout">
+        <!-- OVERLAY -->
+        <div id="modalOverlay" class="modal-overlay hidden"></div>
+
+        <!-- POP-UP TUTORIAL -->
+        <div id="tutoPopUp" class="pop-up-tuto hidden">
+            <p>Savez-vous comment jouer à ce jeu ?</p>
+            <div class="popup-actions">
+                <button class="neon-btn yes-button" id="yes-button">Oui</button>
+                <button class="neon-btn no-button" id="no-button">Non</button>
+            </div>
+        </div>
+
         <!-- LEFT PANEL -->
         <aside class="panel panel-left">
             <h2>Menu</h2>
