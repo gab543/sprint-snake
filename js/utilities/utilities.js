@@ -15,7 +15,7 @@ function addGlobalScores(arrayOfScores) {
 }
 
 function generateFood(canvas, snake) {
-    let food
+    let foodhtfiu8of =2 
 }
 
 export { displayGlobalScores, addGlobalScores };
