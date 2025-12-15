@@ -1,0 +1,67 @@
+// ================= BUTTONS ===================
+.neon-btn {
+    margin-top: 20px;
+    padding: 12px 40px;
+    background: transparent;
+    border: 2px solid $neon-pink;
+    color: $neon-pink;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow:
+        0 0 10px rgba($neon-pink, .8),
+        inset 0 0 10px rgba($neon-pink, .4);
+    transition: all 0.4s ease;
+    animation: neon-idle 2s ease-in-out infinite;
+
+    &:hover {
+        background: $neon-pink;
+        color: #fff;
+        box-shadow:
+            0 0 20px $neon-pink,
+            0 0 40px $neon-pink,
+            0 0 60px $neon-pink,
+            0 0 80px $neon-pink,
+            inset 0 0 20px #fff;
+        animation: neon-pulse 0.2s ease-in-out infinite;
+    }
+}
+
+@keyframes neon-idle {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px #ff00ff,
+            inset 0 0 10px #ff00ff;
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px #ff00ff,
+            inset 0 0 15px #ff00ff;
+    }
+}
+
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px #ff00ff,
+            0 0 40px #ff00ff,
+            0 0 60px #ff00ff,
+            0 0 80px #ff00ff,
+            inset 0 0 20px #fff;
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px #ff00ff,
+            0 0 50px #ff00ff,
+            0 0 70px #ff00ff,
+            0 0 100px #ff00ff,
+            inset 0 0 30px #fff;
+    }
+}
