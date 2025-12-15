@@ -1,27 +1,54 @@
 class LocalStorage {
-  static saveGlobalScore(score) {
-    const globalScores = JSON.parse(localStorage.getItem("globalScores")) || [];
-    globalScores.push(score);
-    localStorage.setItem("globalScores", JSON.stringify(globalScores));
-  }
-  static getGlobalScores() {
-    return JSON.parse(localStorage.getItem("globalScores")) || [];
-  }
-  static clearGlobalScores() {
-    localStorage.removeItem("globalScores");
+  static KEY = "players";
+
+  static _getPlayers() {
+    return JSON.parse(localStorage.getItem(this.KEY)) || {};
   }
 
-  static saveScores(score) {
-    let i = 2;
-    const scores = JSON.parse(localStorage.getItem("Scores")) || [];
-    scores.push(score);
-    localStorage.setItem("Scores", JSON.stringify(scores));
+  static _savePlayers(players) {
+    localStorage.setItem(this.KEY, JSON.stringify(players));
   }
-  static getScores() {
-    return JSON.parse(localStorage.getItem("scores")) || [];
+
+  // Vérifier si un player existe
+  static playerExists(username) {
+    const players = this._getPlayers();
+    return !!players[username];
   }
-  static clearScores() {
-    localStorage.removeItem("scores");
+
+  // Créer un nouveau player
+  static createPlayer(username) {
+    const players = this._getPlayers();
+
+    if (players[username]) {
+      throw new Error("Ce pseudo existe déjà");
+    }
+
+    players[username] = { scores: [] };
+    this._savePlayers(players);
+  }
+
+  // Charger un player existant
+  static getPlayer(username) {
+    const players = this._getPlayers();
+    return players[username] || null;
+  }
+
+  // Ajouter un score à un player
+  static addScore(username, score) {
+    const players = this._getPlayers();
+
+    if (!players[username]) {
+      throw new Error("Player introuvable");
+    }
+
+    players[username].scores.push(score);
+    this._savePlayers(players);
+  }
+
+  // Récupérer les scores d’un player
+  static getScores(username) {
+    const players = this._getPlayers();
+    return players[username]?.scores || [];
   }
 }
 
