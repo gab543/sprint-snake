@@ -10,7 +10,9 @@ class LocalStorage {
   static clearGlobalScores() {
     localStorage.removeItem("globalScores");
   }
+
   static saveScores(score) {
+    let i = 2;
     const scores = JSON.parse(localStorage.getItem("Scores")) || [];
     scores.push(score);
     localStorage.setItem("Scores", JSON.stringify(scores));
