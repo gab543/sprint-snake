@@ -2,18 +2,15 @@ import LocalStorage from "../Classes/LocalStorage.js";
 
 function displayGlobalScores() {
   console.log("Displaying global scores...");
-  const scores = LocalStorage.getGlobalScores() || [];
-  const sortedScores = [...scores].sort((a, b) => Number(b) - Number(a));
+  const scores = LocalStorage.getBestGlobalScores() || [];
+  const sortedScores = [...scores].sort((a, b) => b.score - a.score);
   const scoresList = document.getElementById("scoresList");
   scoresList.innerHTML = sortedScores
-    .map((score) => `<li>${score}</li>`)
+    .map((score) => `<li>${score.username}: ${score.score}</li>`)
     .join("");
 }
 
-function addGlobalScores(arrayOfScores) {
-  arrayOfScores.forEach((score) => LocalStorage.saveGlobalScore(score));
-}
 
-function generateFood(snake) {}
 
-export { displayGlobalScores, addGlobalScores };
+
+export { displayGlobalScores };

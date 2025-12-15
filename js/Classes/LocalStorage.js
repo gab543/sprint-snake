@@ -25,14 +25,19 @@ class LocalStorage {
     return username in players;
   }
 
-  static getGlobalScores() {
+  static getBestGlobalScores() {
     const players = this.loadPlayers();
-    let scores = [];
-    for (const player in players) {
-      scores = scores.concat(players[player].scores);
+    const result = [];
+
+    for (const username in players) {
+      const bestScore = Math.max(...players[username].scores);
+      result.push({ username, score: bestScore });
     }
-    return scores;
+
+    return result.sort((a, b) => b.score - a.score);
   }
+
+
 }
 
 export default LocalStorage;

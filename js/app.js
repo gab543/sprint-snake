@@ -1,11 +1,13 @@
-import { displayGlobalScores, addGlobalScores } from "./utilities/utilities.js";
+import { displayGlobalScores } from "./utilities/utilities.js";
 import LocalStorage from "./Classes/LocalStorage.js";
 import Player from "./Classes/Player.js";
-LocalStorage.clearGlobalScores();
 
-// ajout de scores factices
-addGlobalScores([15938, 20378, 25348, 39216, 17840]);
+const player1 = new Player("Alice");
+player1.addScore(150000000);
+player1.addScore(200);
+const player2 = new Player("Bob");
+player2.addScore(300);
 
 displayGlobalScores();
 
-const player = new Player("Player1");
+

@@ -1,4 +1,4 @@
-import LocalStorage from "./LocalStorage";
+import LocalStorage from "./LocalStorage.js";
 
 class Player {
     constructor(username) {
@@ -20,6 +20,7 @@ class Player {
     }
 
     addScore(score) {
+        console.log(`Adding score ${score} for player ${this._username}`);
         this._scores.push(score);
         this._save();
     }
