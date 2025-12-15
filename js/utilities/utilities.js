@@ -14,4 +14,8 @@ function addGlobalScores(arrayOfScores) {
   arrayOfScores.forEach((score) => LocalStorage.saveGlobalScore(score));
 }
 
+function generateFood(canvas, snake) {
+    let food
+}
+
 export { displayGlobalScores, addGlobalScores };
