@@ -81,7 +81,7 @@ body header nav #darkModeBtn.dark .toggle-ball {
 }
 body .hud-layout {
   display: grid;
-  grid-template-columns: 260px 1fr 260px;
+  grid-template-columns: 25% 1fr 25%;
   gap: 20px;
   padding: 20px;
   height: 90vh;
@@ -114,6 +114,9 @@ body .panel h3 {
   color: #ff2df2;
   margin-top: 0;
   text-shadow: 0 0 8px rgba(255, 45, 242, 0.8);
+}
+body .panel-right {
+  text-align: right;
 }
 body .game-center {
   display: flex;
@@ -154,11 +157,30 @@ body .neon-btn {
   letter-spacing: 2px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 45, 242, 0.8), inset 0 0 10px rgba(255, 45, 242, 0.4);
-  transition: 0.25s ease;
+  transition: all 0.4s ease;
+  animation: neon-idle 2s ease-in-out infinite;
 }
 body .neon-btn:hover {
-  background: rgba(255, 45, 242, 0.15);
-  box-shadow: 0 0 20px #ff2df2, inset 0 0 20px rgba(255, 45, 242, 0.8);
+  background: #ff2df2;
+  color: #fff;
+  box-shadow: 0 0 20px #ff2df2, 0 0 40px #ff2df2, 0 0 60px #ff2df2, 0 0 80px #ff2df2, inset 0 0 20px #fff;
+  animation: neon-pulse 0.2s ease-in-out infinite;
+}
+@keyframes neon-idle {
+  0%, 100% {
+    box-shadow: 0 0 10px #ff00ff, inset 0 0 10px #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 15px #ff00ff, inset 0 0 15px #ff00ff;
+  }
+}
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px #ff00ff, inset 0 0 20px #fff;
+  }
+  50% {
+    box-shadow: 0 0 30px #ff00ff, 0 0 50px #ff00ff, 0 0 70px #ff00ff, 0 0 100px #ff00ff, inset 0 0 30px #fff;
+  }
 }
 
 * body.dark-mode {
@@ -237,6 +259,18 @@ body .neon-btn:hover {
   text-align: center;
   min-width: 320px;
   transition: 0.35s ease;
+}
+.pop-up input[type=text] {
+  width: 80%;
+  padding: 10px;
+  background: rgba(5, 11, 43, 0.9);
+  color: #ffffff;
+  margin-top: 15px;
+  border: 1px solid rgba(63, 216, 255, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(63, 216, 255, 0.3), inset 0 0 8px rgba(63, 216, 255, 0.2);
+  font-size: 1rem;
+  outline: none;
 }
 .pop-up p {
   color: #ff2df2;

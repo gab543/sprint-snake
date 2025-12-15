@@ -30,6 +30,7 @@ class LocalStorage {
     const result = [];
 
     for (const username in players) {
+      if (players[username].scores.length === 0) continue;
       const bestScore = Math.max(...players[username].scores);
       result.push({ username, score: bestScore });
     }
