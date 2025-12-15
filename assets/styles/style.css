@@ -223,7 +223,7 @@ body .neon-btn:hover {
   z-index: 999;
 }
 
-.pop-up-tuto {
+.pop-up {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -238,13 +238,13 @@ body .neon-btn:hover {
   min-width: 320px;
   transition: 0.35s ease;
 }
-.pop-up-tuto p {
+.pop-up p {
   color: #ff2df2;
   font-size: 1.1rem;
   margin-bottom: 20px;
   text-shadow: 0 0 8px rgba(255, 45, 242, 0.8);
 }
-.pop-up-tuto .popup-actions {
+.pop-up .popup-actions {
   display: flex;
   justify-content: center;
   gap: 15px;
