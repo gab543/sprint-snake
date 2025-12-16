@@ -2,6 +2,7 @@
 import LocalStorage from "../Classes/LocalStorage.js";
 import Player from "../Classes/Player.js";
 import { showTutorialPopup } from "./tutorialPopup.js";
+import { displayPlayerScores } from "./utilities.js";
 
 // Éléments DOM
 const overlay = document.getElementById("modalOverlay");
@@ -38,6 +39,9 @@ export function initConnexionPopup() {
         if (!isExistingPlayer) {
             showTutorialPopup();
         }
+
+        displayPlayerScores(username);
+
 
         console.log(
             isExistingPlayer

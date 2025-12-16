@@ -11,7 +11,8 @@ class LocalStorage {
 
   static loadPlayerData(username) {
     const players = this.loadPlayers();
-    return players[username] || null;
+    console.log(players[username] || [])
+    return players[username] || [];
   }
 
   static savePlayerData(username, data) {
