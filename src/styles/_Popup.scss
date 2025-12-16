@@ -1,0 +1,62 @@
+// ================= MODAL OVERLAY =================
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+}
+
+// ================= POP-UP =================
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: linear-gradient(180deg,
+            rgba($neon-panel, .95),
+            rgba($neon-bg-dark, .95));
+    border: 2px solid $neon-blue;
+    box-shadow:
+        0 0 25px rgba($neon-blue, .8),
+        inset 0 0 20px rgba($neon-blue, .4);
+    padding: 30px;
+    border-radius: 16px;
+    z-index: 1000;
+    text-align: center;
+    min-width: 320px;
+    transition: .35s ease;
+
+    input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        background: rgba($neon-bg-dark, .9);
+        color: #ffffff;
+        margin-top: 15px;
+        border: 1px solid rgba($neon-blue, .4);
+        border-radius: 8px;
+        box-shadow:
+            0 0 8px rgba($neon-blue, .3),
+            inset 0 0 8px rgba($neon-blue, .2);
+        font-size: 1rem;
+        outline: none;
+    }
+
+    p {
+        color: $neon-pink;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 8px rgba($neon-pink, .8);
+    }
+
+    .popup-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+}
+
+.hidden {
+    display: none;
+}

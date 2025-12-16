@@ -1,0 +1,97 @@
+body.dark-mode {
+
+    background-color: #02010a;
+    color: #eaeaff;
+
+    // ================= HEADER =================
+    header {
+        background: linear-gradient(90deg,
+                darken(#02010a, 2%),
+                darken($neon-panel, 15%));
+        box-shadow: 0 0 25px rgba($neon-pink, .35);
+
+        nav {
+            p {
+                color: $neon-pink;
+                text-shadow:
+                    0 0 8px rgba($neon-pink, 1),
+                    0 0 16px rgba($neon-pink, .8);
+            }
+        }
+    }
+
+    // ================= HUD LAYOUT =================
+    .hud-layout {
+        background: radial-gradient(circle at top,
+                rgba($neon-purple, .08),
+                transparent 60%);
+    }
+
+    // ================= PANELS =================
+    .panel {
+        background: linear-gradient(180deg,
+                rgba(#050014, .98),
+                rgba(#0a0224, .9));
+
+        border: 1px solid rgba($neon-pink, .5);
+
+        box-shadow:
+            inset 0 0 30px rgba($neon-pink, .15),
+            0 0 20px rgba($neon-pink, .4);
+
+        &::before {
+            border-color: rgba($neon-purple, .6);
+        }
+
+        h2,
+        h3 {
+            color: $neon-blue;
+            text-shadow:
+                0 0 8px rgba($neon-blue, .9),
+                0 0 14px rgba($neon-blue, .6);
+        }
+    }
+
+    // ================= GAME FRAME =================
+    .game-frame {
+        border-color: $neon-pink;
+        box-shadow:
+            0 0 25px rgba($neon-pink, .8),
+            inset 0 0 30px rgba($neon-pink, .4);
+
+        background: radial-gradient(circle,
+                rgba($neon-pink, .12),
+                transparent 70%);
+    }
+
+    canvas {
+        background: #00000f;
+        box-shadow:
+            inset 0 0 20px rgba($neon-blue, .15);
+    }
+
+    // ================= BUTTON =================
+    .neon-btn {
+        border-color: $neon-blue;
+        color: $neon-blue;
+
+        box-shadow:
+            0 0 12px rgba($neon-blue, .8),
+            inset 0 0 12px rgba($neon-blue, .5);
+
+        &:hover {
+            background: rgba($neon-blue, .15);
+            box-shadow:
+                0 0 25px rgba($neon-blue, 1),
+                inset 0 0 20px rgba($neon-blue, .9);
+        }
+    }
+
+    // ================= TEXT / UI =================
+    p,
+    li,
+    span {
+        color: #e6e6ff;
+        text-shadow: 0 0 4px rgba($neon-purple, .4);
+    }
+}
