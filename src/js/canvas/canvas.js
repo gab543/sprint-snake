@@ -7,12 +7,13 @@ function dessinerCarre(x, y, l, couleur) {
 }
 
 function dessinerTerrain() {
-    for (let i=0; i<15; ++i) {
-        for (let j=0; j<15; ++j) {
-            dessinerCarre(i*30, j*30, 30, "#006400")
+    for (let i = 0; i < 15; ++i) {
+        for (let j = 0; j < 15; ++j) {
+            dessinerCarre(i * 30, j * 30, 30, "#006400")
         }
     }
 }
+
 
 dessinerTerrain()
 

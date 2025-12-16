@@ -37,3 +37,17 @@
 .panel-right {
     text-align: right;
 }
+
+.panel-left {
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            height: min-content;
+            list-style: none;
+            text-wrap: nowrap;
+            padding: 10px 20px;
+        }
+    }
+}
