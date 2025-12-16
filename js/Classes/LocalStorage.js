@@ -1,28 +1,43 @@
 class LocalStorage {
-  static saveGlobalScore(score) {
-    const globalScores = JSON.parse(localStorage.getItem("globalScores")) || [];
-    globalScores.push(score);
-    localStorage.setItem("globalScores", JSON.stringify(globalScores));
-  }
-  static getGlobalScores() {
-    return JSON.parse(localStorage.getItem("globalScores")) || [];
-  }
-  static clearGlobalScores() {
-    localStorage.removeItem("globalScores");
+  static KEY = "players";
+
+  static loadPlayers() {
+    return JSON.parse(localStorage.getItem(this.KEY)) || {};
   }
 
-  static saveScores(score) {
-    let i = 2;
-    const scores = JSON.parse(localStorage.getItem("Scores")) || [];
-    scores.push(score);
-    localStorage.setItem("Scores", JSON.stringify(scores));
+  static savePlayers(players) {
+    localStorage.setItem(this.KEY, JSON.stringify(players));
   }
-  static getScores() {
-    return JSON.parse(localStorage.getItem("scores")) || [];
+
+  static loadPlayerData(username) {
+    const players = this.loadPlayers();
+    return players[username] || null;
   }
-  static clearScores() {
-    localStorage.removeItem("scores");
+
+  static savePlayerData(username, data) {
+    const players = this.loadPlayers();
+    players[username] = data;
+    this.savePlayers(players);
   }
+
+  static playerExists(username) {
+    const players = this.loadPlayers();
+    return username in players;
+  }
+
+  static getBestGlobalScores() {
+    const players = this.loadPlayers();
+    const result = [];
+
+    for (const username in players) {
+      const bestScore = Math.max(...players[username].scores);
+      result.push({ username, score: bestScore });
+    }
+
+    return result.sort((a, b) => b.score - a.score);
+  }
+
+
 }
 
 export default LocalStorage;
