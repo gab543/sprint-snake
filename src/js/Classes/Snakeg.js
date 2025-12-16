@@ -7,6 +7,7 @@ export default class Snakeg {
         this.segments = [{ x, y }];
         this.dx = 0;
         this.dy = 1;
+        this._direction = "haut"
         this.size = size;
         this.growPending = 0; // nombre de segments à ajouter
         this._canvasHeight = 450;
@@ -24,6 +25,11 @@ export default class Snakeg {
 
         this.dx = newDx;
         this.dy = newDy;
+
+        if (newDx === 0 && newDy === -1) this.direction = "haut";
+        else if (newDx === 0 && newDy === 1) this.direction = "bas";
+        else if (newDx === -1 && newDy === 0) this.direction = "gauche";
+        else if (newDx === 1 && newDy === 0) this.direction = "droite";
     }
 
     // Utilitaire pour gérer les touches fléchées
@@ -59,6 +65,7 @@ export default class Snakeg {
         } else {
             this.segments.pop();
         }
+        console.log(this.segments)
     }
 
     // Demande de croissance (par ex. lorsqu'il mange)
@@ -92,9 +99,9 @@ export default class Snakeg {
     }
 
     // Rendu simple sur un context 2D  
-    draw({ headColor = 'darkgreen', bodyColor = 'green' } = {}) {
+    draw(bodyColor = 'green') {
         this.segments.forEach((segment, index) => {
-            if (index === 0) { dessinerTete(segment.x, segment.y,) }
+            if (index === 0) dessinerTete(segment.x, segment.y, this.direction);
             dessinerCarre(segment.x, segment.y, this.size, bodyColor)
             console.log("snake déssiné en " + segment.x + ", " + segment.y)
         });

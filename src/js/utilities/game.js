@@ -5,10 +5,6 @@ import Snake from "../Classes/Snakeg.js";
 const GRID_W = 15;
 const GRID_H = 15;
 
-// adapter la taille du canvas
-canvas.width = GRID_W * tailleCase;
-canvas.height = GRID_H * tailleCase;
-
 // instance du serpent (utilise la classe Snake.js)
 const snake = new Snake();
 // s'assurer que la taille de case du serpent correspond au canvas
@@ -40,8 +36,8 @@ function draw() {
     snake.draw();
     if (food) dessinerNourriture(food.x, food.y);
 
-    const scoreEl = document.getElementById('score');
-    if (scoreEl) scoreEl.textContent = `Score: ${score}`;
+    const scoreEl = document.getElementById('gameScore');
+    if (scoreEl) scoreEl.textContent = score;
 }
 
 function tick() {
@@ -90,14 +86,16 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
-const btn = document.getElementById("confirmUsernameBtn")
+const btn = document.getElementById("startBtn")
 // démarrage
 spawnFood();
 draw();
+let started = false;
 btn.addEventListener("click", () => {
-    intervalId = setInterval(tick, TICK_MS);
-}
-)
-
+    if (!started) {
+        intervalId = setInterval(tick, TICK_MS);
+        started = true;
+    }
+});
 
 export { snake, spawnFood, tick };
