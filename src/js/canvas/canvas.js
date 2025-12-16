@@ -54,3 +54,12 @@ export function dessinerCorps(x, y, tileSize) {
     dessinerCarre(x, y, tileSize, "#43008F");
 }
 
+export function dessinerNourriture(x, y) {
+    dessinerCarre(x * tailleCase, y * tailleCase, tailleCase, "red");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    dessinerTerrain();
+    dessinerTete(5, 5, "droite");
+    dessinerNourriture(10, 10);
+});
