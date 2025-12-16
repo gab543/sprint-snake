@@ -16,4 +16,4 @@ function dessinerTerrain() {
 
 
 dessinerTerrain()
-
+export default dessinerCarre
