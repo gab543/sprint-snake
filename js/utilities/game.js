@@ -1,16 +1,16 @@
-import { canvas, ctx, tailleCase } from "../canvas/canvas.js";
+import { canvas, ctx, dessinerTete, tailleCase } from "../canvas/canvas.js";
 import Snake from "../Classes/Snake.js";
 
 const snake = new Snake(4, 8, tailleCase);
 
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    snake.draw(ctx);
+    snake.draw();
 }
 
 function initializeGame() {
-    // Pour l'instant afficher uniquement le serpent au démarrage
-    render();
+    dessinerTete(4, 8, "droite")
+    console.log("Game initialized");
 }
 
 function moveSquare(e){
@@ -28,7 +28,6 @@ function moveSquare(e){
             snake.changeDirection(0, 1);
             break;
     }
-    // redraw (le serpent ne bouge pas encore automatiquement)
     render();
 }
 

@@ -1,4 +1,4 @@
-export const canvas = document.querySelector("#snakeCanvas");
+export const canvas = document.querySelector("#canvas");
 export const ctx = canvas.getContext("2d");
 
 export const tailleCase = 30;
@@ -16,7 +16,6 @@ export function dessinerTerrain() {
     }
 }
 
-// dessiner la tete en donnant sa position en cases et la direction
 export function dessinerTete(x, y, direction) {
     const px = x * tailleCase;
     const py = y * tailleCase;

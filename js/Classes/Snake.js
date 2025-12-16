@@ -1,3 +1,5 @@
+import { dessinerCorps, dessinerTete } from "../canvas/canvas.js";
+
 class Snake {
     constructor(x, y, tileSize = 30) {
      
@@ -74,23 +76,20 @@ class Snake {
         return false;
     }
 
-    // dessiner le serpent
-    draw(ctx) {
-        this.segments.forEach((segment, index) => {
-            if (index === 0) {
-                ctx.fillStyle = "darkgreen"; 
-            }
-            else {
-                ctx.fillStyle = "green";
-            }
+    draw() {
+        const head = this.segments[0];
 
-            ctx.fillRect(
-                segment.x * this.size,
-                segment.y * this.size,
-                this.size,
-                this.size
-            )
-        })
+        let direction = "droite";
+        if (this.dx === -1 && this.dy === 0) direction = "gauche";
+        else if (this.dx === 0 && this.dy === -1) direction = "haut";
+        else if (this.dx === 0 && this.dy === 1) direction = "bas";
+
+        dessinerTete(head.x, head.y, direction);
+
+        for (let i = 1; i < this.segments.length; i++) {
+            const seg = this.segments[i];
+            dessinerCorps(seg.x * this.size, seg.y * this.size, this.size);
+        }
     }
 }
 
