@@ -2,6 +2,7 @@ import { displayGlobalScores } from "./utilities/utilities.js";
 import LocalStorage from "./Classes/LocalStorage.js";
 import Player from "./Classes/Player.js";
 import { showConnexionPopup, initConnexionPopup } from "./utilities/connexionPopUp.js";
+import { dessinerTerrain, dessinerNourriture, dessinerTete } from "./canvas/canvas.js";
 
 
 window.addEventListener("load", () => {
@@ -18,3 +19,6 @@ player2.addScore(300);
 displayGlobalScores();
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    dessinerTerrain();
+});

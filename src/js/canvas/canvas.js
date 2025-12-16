@@ -28,24 +28,24 @@ export function dessinerTete(x, y, direction) {
 
     switch (direction) {
         case "haut":
-            dessinerCarre(px + oeilX, py + oeilY, tailleOeil, "black");
-            dessinerCarre(px + 2 * oeilX, py + oeilY, tailleOeil, "black");
-            dessinerCarre(px + tailleCase / 2 - tailleOeil / 2, py - tailleOeil, tailleOeil, "red");
+            dessinerCarre(px + oeilX, py + oeilY, tailleOeil, "white");
+            dessinerCarre(px + 2 * oeilX, py + oeilY, tailleOeil, "white");
+            dessinerCarre(px + tailleCase / 2 - tailleOeil / 2, py - tailleOeil, tailleOeil, "white");
             break;
         case "bas":
-            dessinerCarre(px + oeilX, py + 2 * oeilY, tailleOeil, "black");
-            dessinerCarre(px + 2 * oeilX, py + 2 * oeilY, tailleOeil, "black");
-            dessinerCarre(px + tailleCase / 2 - tailleOeil / 2, py + tailleCase, tailleOeil, "red");
+            dessinerCarre(px + oeilX, py + 2 * oeilY, tailleOeil, "white");
+            dessinerCarre(px + 2 * oeilX, py + 2 * oeilY, tailleOeil, "white");
+            dessinerCarre(px + tailleCase / 2 - tailleOeil / 2, py + tailleCase, tailleOeil, "white");
             break;
         case "gauche":
-            dessinerCarre(px + oeilX, py + oeilY, tailleOeil, "black");
-            dessinerCarre(px + oeilX, py + 2 * oeilY, tailleOeil, "black");
-            dessinerCarre(px - tailleOeil, py + tailleCase / 2 - tailleOeil / 2, tailleOeil, "red");
+            dessinerCarre(px + oeilX, py + oeilY, tailleOeil, "white");
+            dessinerCarre(px + oeilX, py + 2 * oeilY, tailleOeil, "white");
+            dessinerCarre(px - tailleOeil, py + tailleCase / 2 - tailleOeil / 2, tailleOeil, "white");
             break;
         case "droite":
-            dessinerCarre(px + 2 * oeilX, py + oeilY, tailleOeil, "black");
-            dessinerCarre(px + 2 * oeilX, py + 2 * oeilY, tailleOeil, "black");
-            dessinerCarre(px + tailleCase, py + tailleCase / 2 - tailleOeil / 2, tailleOeil, "red");
+            dessinerCarre(px + 2 * oeilX, py + oeilY, tailleOeil, "white");
+            dessinerCarre(px + 2 * oeilX, py + 2 * oeilY, tailleOeil, "white");
+            dessinerCarre(px + tailleCase, py + tailleCase / 2 - tailleOeil / 2, tailleOeil, "white");
             break;
     }
 }
@@ -58,8 +58,3 @@ export function dessinerNourriture(x, y) {
     dessinerCarre(x * tailleCase, y * tailleCase, tailleCase, "red");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    dessinerTerrain();
-    dessinerTete(5, 5, "droite");
-    dessinerNourriture(10, 10);
-});

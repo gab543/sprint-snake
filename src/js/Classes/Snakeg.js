@@ -1,6 +1,6 @@
 // src/js/Classes/Snakeg.js
 // Classe Snakeg : gestion d'un serpent sur une grille (segments, direction, croissance, collisions, rendu)
-import dessinerCarre from "../canvas/canvas";
+import { dessinerCarre, dessinerTete } from "../canvas/canvas.js";
 
 export default class Snakeg {
     constructor(x = 5, y = 5, size = 30) {
@@ -19,7 +19,9 @@ export default class Snakeg {
 
     // Empêche l'inversion 180° et change la direction
     changeDirection(newDx, newDy) {
-        if (this.dx === -newDx && this.dy === -newDy) return; // empêcher inversion
+        // Empêche demi-tour (180°)
+        if (this.dx === -newDx && this.dy === -newDy) { return console.log("annulée") };
+
         this.dx = newDx;
         this.dy = newDy;
     }
@@ -29,15 +31,19 @@ export default class Snakeg {
         switch (key) {
             case 'ArrowUp':
                 this.changeDirection(0, -1);
+                console.log("haut")
                 break;
             case 'ArrowDown':
                 this.changeDirection(0, 1);
+                console.log("bas")
                 break;
             case 'ArrowLeft':
                 this.changeDirection(-1, 0);
+                console.log("gauche")
                 break;
             case 'ArrowRight':
                 this.changeDirection(1, 0);
+                console.log("droite")
                 break;
         }
     }
@@ -57,6 +63,7 @@ export default class Snakeg {
 
     // Demande de croissance (par ex. lorsqu'il mange)
     grow(amount = 1) {
+        console.log("on grandi")
         this.growPending += amount;
     }
 
@@ -84,11 +91,12 @@ export default class Snakeg {
         return false;
     }
 
-    // Rendu simple sur un context 2D
-    draw(ctx, { headColor = 'darkgreen', bodyColor = 'green' } = {}) {
+    // Rendu simple sur un context 2D  
+    draw({ headColor = 'darkgreen', bodyColor = 'green' } = {}) {
         this.segments.forEach((segment, index) => {
-            if (index === 0) { dessinerCarre(segment.x, segment.y, this.size, headColor) }
+            if (index === 0) { dessinerTete(segment.x, segment.y,) }
             dessinerCarre(segment.x, segment.y, this.size, bodyColor)
+            console.log("snake déssiné en " + segment.x + ", " + segment.y)
         });
     }
 
