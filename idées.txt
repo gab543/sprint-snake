@@ -2,42 +2,6 @@ faire clignoter en blanc comme un flash à chaque pomme mangée
 
 faire un fonction pour faire une pomme en canva avec une taille adaptable 
 
-@keyframes neon-pulse {
-      0%, 100% { 
-        box-shadow: 
-          0 0 20px #ff00ff,
-          0 0 40px #ff00ff,
-          0 0 60px #ff00ff,
-          0 0 80px #ff00ff,
-          inset 0 0 20px #fff;
-      }
-      50% { 
-        box-shadow: 
-          0 0 30px #ff00ff,
-          0 0 50px #ff00ff,
-          0 0 70px #ff00ff,
-          0 0 100px #ff00ff,
-          inset 0 0 30px #fff;
-      }
-    }
 
-    .fx-neon-pulse {
-      background: #000;
-      color: #fff;
-      border: 3px solid #ff00ff;
-      box-shadow: 
-        0 0 10px #ff00ff,
-        inset 0 0 10px #ff00ff;
-      animation: neon-idle 2s ease-in-out infinite;
-    }
-    .fx-neon-pulse:hover {
-      background: #ff00ff;
-      color: #000;
-      box-shadow: 
-        0 0 20px #ff00ff,
-        0 0 40px #ff00ff,
-        0 0 60px #ff00ff,
-        0 0 80px #ff00ff,
-        inset 0 0 20px #fff;
-      animation: neon-pulse 0.1s ease-in-out infinite;
-    }
+pour le grow snake il faut juste ne pas pop pour un certains nombre de fois
+
