@@ -1,5 +1,5 @@
- class Snake {
-    constructor(x, y) {
+class Snake {
+    constructor(x, y, tileSize = 30) {
      
         this.segments = [
             { x: x, y: y }
@@ -9,8 +9,8 @@
         this.dx = 1;
         this.dy = 0;
 
-        // taille d'une case 
-        this.size = 20;
+        // taille d'une case (en pixels)
+        this.size = tileSize;
     }
 
     // changer la direction 
@@ -93,3 +93,5 @@
         })
     }
 }
+
+export default Snake;
