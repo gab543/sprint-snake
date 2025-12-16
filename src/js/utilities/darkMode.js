@@ -4,9 +4,7 @@ const toggleBtn = document.getElementById("darkModeBtn");
 toggleBtn.classList.add("light");
 
 toggleBtn.addEventListener("click", () => {
-  setTimeout(() => {
-    toggleBtn.classList.toggle("dark");
-    toggleBtn.classList.toggle("light");
-  }, 200);
+  toggleBtn.classList.toggle("dark");
+  toggleBtn.classList.toggle("light");
   document.body.classList.toggle("dark-mode");
 });

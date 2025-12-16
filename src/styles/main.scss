@@ -1,0 +1,19 @@
+// ================= VARIABLES =================
+$neon-pink: #ff2df2;
+$neon-blue: #3fd8ff;
+$neon-purple: #7b5cff;
+
+$neon-bg-dark: #050b2b;
+$neon-panel: #0c154a;
+
+$ball-size: 36px;
+$toggle-width: 78px;
+$toggle-height: 36px;
+
+// Central SCSS entry point for all styles
+@import 'button.scss';
+@import 'darkMode.scss';
+@import 'game.scss';
+@import 'panels.scss';
+@import 'Popup.scss';
+@import 'global.scss';
