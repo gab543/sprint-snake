@@ -37,16 +37,6 @@ function displayPlayerScores(username) {
     .join("");
 }
 
-let collision;
-do {
-  food = {
-    x: Math.floor(Math.random() * (canvasSize / cellSize)) * cellSize,
-    y: Math.floor(Math.random() * (canvasSize / cellSize)) * cellSize
-  };
-  collision = snake.segments.some(segment =>
-    segment.x === food.x && segment.y === food.y
-  );
-} while (collision);
-return food;
+
 
 export { displayGlobalScores, displayPlayerScores };

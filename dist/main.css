@@ -155,6 +155,18 @@ canvas {
   text-align: right;
 }
 
+.panel-left ul {
+  padding: 0;
+  margin: 0;
+}
+.panel-left ul li {
+  height: -moz-min-content;
+  height: min-content;
+  list-style: none;
+  text-wrap: nowrap;
+  padding: 10px 20px;
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
