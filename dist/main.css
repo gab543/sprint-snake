@@ -3,6 +3,7 @@
   padding: 12px 40px;
   background: transparent;
   border: 2px solid #ff2df2;
+  border-radius: 10px;
   color: #ff2df2;
   font-family: inherit;
   font-size: 1rem;
@@ -17,6 +18,18 @@
   color: #fff;
   box-shadow: 0 0 20px #ff2df2, 0 0 40px #ff2df2, 0 0 60px #ff2df2, 0 0 80px #ff2df2, inset 0 0 20px #fff;
   animation: neon-pulse 0.2s ease-in-out infinite;
+}
+
+select {
+  -webkit-appearance: base-select;
+     -moz-appearance: base-select;
+          appearance: base-select;
+}
+select option:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+select option:last-of-type {
+  border-radius: 0 0 8px 8px;
 }
 
 @keyframes neon-idle {
@@ -166,6 +179,11 @@ canvas {
   list-style: none;
   text-wrap: nowrap;
   padding: 10px 20px;
+}
+.panel-left ul li .neon-btn {
+  display: block;
+  margin: 0;
+  width: 100%;
 }
 
 .modal-overlay {

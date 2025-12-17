@@ -4,6 +4,7 @@
     padding: 12px 40px;
     background: transparent;
     border: 2px solid $neon-pink;
+    border-radius: 10px;
     color: $neon-pink;
     font-family: inherit;
     font-size: 1rem;
@@ -26,7 +27,22 @@
             inset 0 0 20px #fff;
         animation: neon-pulse 0.2s ease-in-out infinite;
     }
+
 }
+
+select {
+    appearance: base-select;
+
+    option:first-of-type {
+        border-radius: 8px 8px 0 0;
+    }
+
+    option:last-of-type {
+        border-radius: 0 0 8px 8px;
+    }
+}
+
+
 
 @keyframes neon-idle {
 

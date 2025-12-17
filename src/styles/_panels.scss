@@ -48,6 +48,12 @@
             list-style: none;
             text-wrap: nowrap;
             padding: 10px 20px;
+
+            .neon-btn {
+                display: block;
+                margin: 0;
+                width: 100%;
+            }
         }
     }
 }
