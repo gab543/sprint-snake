@@ -193,7 +193,8 @@ canvas {
   padding: 10px 20px;
 }
 .panel-left ul li .neon-btn {
-  padding: 10px 0;
+  padding: 20px 0;
+  padding-left: 10px;
   display: block;
   margin: 0;
   width: 100%;
