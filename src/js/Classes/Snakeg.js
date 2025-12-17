@@ -3,8 +3,10 @@
 import { dessinerCarre, dessinerTete } from "../canvas/canvas.js";
 
 export default class Snakeg {
-    constructor(x = 5, y = 5, size = 30) {
-        this.segments = [{ x, y }];
+    constructor(x = 7, y = 9, size = 30) {
+        this.yBody1 = x - 1
+        this.yBody2 = y - 2
+        this.segments = [{ x, y }, { x, ybody1 }, { x, ybody2 }];
         this.dx = 0;
         this.dy = 1;
         this._direction = "haut"
