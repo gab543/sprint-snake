@@ -4,6 +4,7 @@
     padding: 12px 40px;
     background: transparent;
     border: 2px solid $neon-pink;
+    border-radius: 10px;
     color: $neon-pink;
     font-family: inherit;
     font-size: 1rem;
@@ -26,7 +27,39 @@
             inset 0 0 20px #fff;
         animation: neon-pulse 0.2s ease-in-out infinite;
     }
+
 }
+
+select {
+
+
+    option:first-of-type {
+        appearance: none;
+        border-radius: 8px 8px 0 0;
+    }
+
+    option:last-of-type {
+        border-radius: 0 0 8px 8px;
+    }
+
+    ::picker(select) {
+        padding: 0;
+        position-anchor: --html;
+        margin-top: 5px;
+        border: 2px solid hotpink;
+        background: white;
+        border-radius: 5px;
+        font-weight: 400;
+        bottom: 0;
+        width: 100%;
+        translate: 0 100dvh;
+        transition: translate 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s,
+            display 0.5s;
+
+        transition-behavior: allow-discrete;
+    }
+}
+
 
 @keyframes neon-idle {
 
@@ -53,7 +86,7 @@
             0 0 40px #ff00ff,
             0 0 60px #ff00ff,
             0 0 80px #ff00ff,
-            inset 0 0 20px #fff;
+            inset 0 0 20px #ff00ff;
     }
 
     50% {
@@ -62,6 +95,6 @@
             0 0 50px #ff00ff,
             0 0 70px #ff00ff,
             0 0 100px #ff00ff,
-            inset 0 0 30px #fff;
+            inset 0 0 30px #ff00ff;
     }
 }
