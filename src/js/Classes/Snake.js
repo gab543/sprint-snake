@@ -112,7 +112,11 @@ export default class Snake {
 
 
     reset(x = 5, y = 5) {
-        this.segments = [{ x, y }, { x, ybody1 }, { x, ybody2 }];
+        this.segments = [
+            { x, y },
+            { x, y: y - 1 },
+            { x, y: y - 2 }
+        ];
         this.dx = 1;
         this.dy = 0;
         this.growPending = 0;

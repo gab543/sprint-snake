@@ -2,8 +2,16 @@
 import { startGame, restartGame } from "./utilities/game.js";
 import { snake } from "./utilities/game.js";
 import { dessinerTerrain, dessinerNourriture, dessinerTete } from "./canvas/canvas.js";
-import { showConnexionPopup, initConnexionPopup } from "./utilities/connexionPopUp.js";
+import { showConnexionPopup, initConnexionPopup } from "./utilities/connexionPopup.js";
 import Player from "./Classes/Player.js";
+import { initCanvas } from "./canvas/canvas.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    initCanvas();
+    dessinerTerrain();
+});
+
+
 
 window.addEventListener("keydown", (e) => {
     switch (e.key) {
@@ -47,9 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Création de joueur fictifs pour afficher les scores
-const player1 = new Player("gabriel");
-player1.addScore(1500);
-player1.addScore(2000);
+const player1 = new Player("Alice");
+player1.addScore(150000000);
+player1.addScore(200);
+const player2 = new Player("Bob");
+player2.addScore(300);
 
-const player2 = new Player("ali");
-player2.addScore(3000);
+// pour empecher le scroll
+document.addEventListener("keydown", function (e) {
+
+  const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+ 
+  if (keys.includes(e.key)) {
+
+    e.preventDefault();
+
+  }
+
+});
+ 

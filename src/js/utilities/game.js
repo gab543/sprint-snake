@@ -35,30 +35,45 @@ let currentTick = currentDifficulty.speed;
 
 
 // spawn nourriture
+const FOOD_COLORS = ["red", "blue", "yellow", "green"];
+
 function spawnFood() {
     const isOnSnake = (x, y) => snake.segments.some(s => s.x === x && s.y === y);
+
     let tries = 0;
     do {
         const x = Math.floor(Math.random() * GRID_W);
         const y = Math.floor(Math.random() * GRID_H);
+
         if (!isOnSnake(x, y)) {
-            food = { x, y };
+            const isSpecial = Math.random() < 0.2; // 20%
+
+            food = {
+                x,
+                y,
+                isSpecial,
+                couleur: FOOD_COLORS[Math.floor(Math.random() * FOOD_COLORS.length)],
+                couleursClignotantes: FOOD_COLORS
+            };
             return;
         }
         tries++;
     } while (tries < 100);
-    food = { x: 0, y: 0 };
 }
+
+
 
 // dessiner le jeu
 function draw() {
     dessinerTerrain();
     snake.draw();
-    if (food) dessinerNourriture(food.x, food.y);
+
+    if (food) dessinerNourriture(food);
 
     const scoreEl = document.getElementById('gameScore');
     if (scoreEl) scoreEl.textContent = score;
 }
+
 
 function updateSpeed() {
     const newSpeed = Math.max(
@@ -83,7 +98,7 @@ function gameLoop() {
     const head = snake.segments[0];
     if (food && head.x === food.x && head.y === food.y) {
         snake.grow(currentDifficulty.grow);
-        score += 1;
+        score += food.isSpecial ? 2 : 1;
         spawnFood();
         updateSpeed();
     }
@@ -101,19 +116,13 @@ function gameLoop() {
 
 // gestion fin de partie
 function gameOver() {
-    console.log("Game Over");
-    // arrêter la boucle de jeu
     clearInterval(intervalId);
     intervalId = null;
-    showGameOverMessage();
-
-    // reset du jeu
-    snake.reset();
-    score = 0;
-    spawnFood();
-    draw();
     started = false;
+
+    showGameOverMessage();
 }
+
 
 function showGameOverMessage() {
     const overlay = document.getElementById("modalOverlay");
@@ -132,61 +141,46 @@ function showGameOverMessage() {
     modal.querySelector("button").addEventListener("click", () => {
         modal.remove();
         overlay.classList.add("hidden");
+        restartGame();
     });
+
 }
 
 
-// écoute clavier
-window.addEventListener('keydown', (e) => {
-    switch (e.key) {
-        case 'ArrowUp':
-        case 'z':
-        case 'Z':
-            snake.changeDirection(0, -1);
-            break;
-        case 'ArrowDown':
-        case 's':
-        case 'S':
-            snake.changeDirection(0, 1);
-            break;
-        case 'ArrowLeft':
-        case 'q':
-        case 'Q':
-            snake.changeDirection(-1, 0);
-            break;
-        case 'ArrowRight':
-        case 'd':
-        case 'D':
-            snake.changeDirection(1, 0);
-            break;
-    }
-});
 
 function startGame() {
     const btn = document.getElementById("startBtn");
-
-    btn.addEventListener("click", () => {
-        if (!started) {
-            currentTick = currentDifficulty.speed;
-            intervalId = setInterval(gameLoop, currentTick);
-            started = true;
-        }
+    const difficultySelect = document.getElementById("difficultySelect");
+    
+    difficultySelect.addEventListener("change", () => {
+        currentDifficulty = DIFFICULTIES[difficultySelect.value];
+        currentTick = currentDifficulty.speed;
     });
-
+    
+    spawnFood();
+    draw();
+    if (!started) {
+        currentTick = currentDifficulty.speed;
+        intervalId = setInterval(gameLoop, currentTick);
+        started = true;
+    }
 }
 
-// démarrage du jeu
+function restartGame() {
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
 
-const difficultySelect = document.getElementById("difficultySelect");
-
-difficultySelect.addEventListener("change", () => {
-    currentDifficulty = DIFFICULTIES[difficultySelect.value];
+    score = 0;
     currentTick = currentDifficulty.speed;
-});
+    snake.reset();
+    spawnFood();
+    draw();
+    started = false;
+}
 
-spawnFood();
-draw();
 
 
 
-export { snake, spawnFood, gameLoop, gameOver };
+export { snake, spawnFood, gameLoop, gameOver, startGame, restartGame};
