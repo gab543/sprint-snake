@@ -3,7 +3,7 @@ import { startGame, restartGame } from "./utilities/game.js";
 import { snake } from "./utilities/game.js";
 import { dessinerTerrain, dessinerNourriture, dessinerTete } from "./canvas/canvas.js";
 import { showConnexionPopup, initConnexionPopup } from "./utilities/connexionPopUp.js";
-import Player from "/Classes/Player.js";
+import Player from "./Classes/Player.js";
 
 window.addEventListener("keydown", (e) => {
     switch (e.key) {

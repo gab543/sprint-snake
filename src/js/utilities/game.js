@@ -12,6 +12,7 @@ snake.size = tailleCase;
 let food = null;
 let score = 0;
 let intervalId = null;
+let started = false;
 
 // Difficultés
 const DIFFICULTIES = {
@@ -161,8 +162,21 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
+function startGame() {
+    const btn = document.getElementById("startBtn");
+
+    btn.addEventListener("click", () => {
+        if (!started) {
+            currentTick = currentDifficulty.speed;
+            intervalId = setInterval(gameLoop, currentTick);
+            started = true;
+        }
+    });
+
+}
+
 // démarrage du jeu
-const btn = document.getElementById("startBtn");
+
 const difficultySelect = document.getElementById("difficultySelect");
 
 difficultySelect.addEventListener("change", () => {
@@ -172,14 +186,7 @@ difficultySelect.addEventListener("change", () => {
 
 spawnFood();
 draw();
-let started = false;
-btn.addEventListener("click", () => {
-    if (!started) {
-        currentTick = currentDifficulty.speed;
-        intervalId = setInterval(gameLoop, currentTick);
-        started = true;
-    }
-});
+
 
 
 export { snake, spawnFood, gameLoop, gameOver };
