@@ -8,8 +8,8 @@ function displayGlobalScores() {
   const scoresList = document.getElementById("globalScoresList");
 
   scoresList.innerHTML = sortedScores
-   .map((score) => `<li>${score.username}: ${score.score}</li>`)
-   .join("");
+    .map((score) => `<li>${score.username}: ${score.score}</li>`)
+    .join("");
 }
 
 function displayPlayerScores(username) {

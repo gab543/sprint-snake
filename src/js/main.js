@@ -5,11 +5,9 @@ import { dessinerTerrain, dessinerNourriture, dessinerTete } from "./canvas/canv
 import { showConnexionPopup, initConnexionPopup } from "./utilities/connexionPopup.js";
 import Player from "./Classes/Player.js";
 import { initCanvas } from "./canvas/canvas.js";
+import { displayGlobalScores } from "./utilities/utilities.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    initCanvas();
-    dessinerTerrain();
-});
+
 
 
 
@@ -38,39 +36,37 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
+//Regarder le bouton start
 const startBtn = document.getElementById("startBtn");
 if (startBtn) {
     startBtn.addEventListener("click", startGame);
 }
 
-const restartBtn = document.getElementById("restartBtn");
-if (restartBtn) {
-    restartBtn.addEventListener("click", restartGame);
-}
 
 document.addEventListener("DOMContentLoaded", () => {
     initConnexionPopup();
     showConnexionPopup();
+    initCanvas();
     dessinerTerrain();
+    displayGlobalScores();
 });
 
 //Création de joueur fictifs pour afficher les scores
 const player1 = new Player("Alice");
-player1.addScore(150000000);
-player1.addScore(200);
+player1.addScore(1500);
+player1.addScore(2000);
 const player2 = new Player("Bob");
-player2.addScore(300);
+player2.addScore(3000);
 
 // pour empecher le scroll
 document.addEventListener("keydown", function (e) {
 
-  const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
- 
-  if (keys.includes(e.key)) {
+    const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 
-    e.preventDefault();
+    if (keys.includes(e.key)) {
 
-  }
+        e.preventDefault();
+
+    }
 
 });
- 

@@ -116,6 +116,8 @@ function gameLoop() {
 
 // gestion fin de partie
 function gameOver() {
+    const score = document.querySelector("#gameScore").textContent
+    player.addScore(score)
     clearInterval(intervalId);
     intervalId = null;
     started = false;
@@ -151,12 +153,12 @@ function showGameOverMessage() {
 function startGame() {
     const btn = document.getElementById("startBtn");
     const difficultySelect = document.getElementById("difficultySelect");
-    
+
     difficultySelect.addEventListener("change", () => {
         currentDifficulty = DIFFICULTIES[difficultySelect.value];
         currentTick = currentDifficulty.speed;
     });
-    
+
     spawnFood();
     draw();
     if (!started) {
@@ -183,4 +185,4 @@ function restartGame() {
 
 
 
-export { snake, spawnFood, gameLoop, gameOver, startGame, restartGame};
+export { snake, spawnFood, gameLoop, gameOver, startGame, restartGame };

@@ -68,6 +68,9 @@ export default class Snake {
             this.segments.pop();
         }
         console.log(this.segments)
+        if (this.segments.length === 15 * 15) {
+
+        }
     }
 
     // Demande de croissance (par ex. lorsqu'il mange)
