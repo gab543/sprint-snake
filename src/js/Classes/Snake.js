@@ -3,8 +3,10 @@
 import { dessinerTete, dessinerCorps } from "../canvas/canvas.js";
 
 export default class Snake {
-    constructor(x = 5, y = 5, size = 30) {
-        this.segments = [{ x, y }];
+    constructor(x = 7, y = 9, size = 30) {
+        this.yBody1 = x - 1
+        this.yBody2 = y - 2
+        this.segments = [{ x, y }, { x, ybody1 }, { x, ybody2 }];
         this.dx = 0;
         this.dy = 1;
         this._direction = "haut"
@@ -99,18 +101,18 @@ export default class Snake {
     }
 
     draw() {
-    this.segments.forEach((segment, index) => {
-        if (index === 0) {
-            dessinerTete(segment.x, segment.y, this.direction);
-        } else {
-            dessinerCorps(segment.x, segment.y);
-        }
-    });
+        this.segments.forEach((segment, index) => {
+            if (index === 0) {
+                dessinerTete(segment.x, segment.y, this.direction);
+            } else {
+                dessinerCorps(segment.x, segment.y);
+            }
+        });
     }
 
 
     reset(x = 5, y = 5) {
-        this.segments = [{ x, y }];
+        this.segments = [{ x, y }, { x, ybody1 }, { x, ybody2 }];
         this.dx = 1;
         this.dy = 0;
         this.growPending = 0;
