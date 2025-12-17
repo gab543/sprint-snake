@@ -186,6 +186,7 @@ difficultySelect.addEventListener("change", () => {
 
 spawnFood();
 draw();
+startGame();
 
 
 
