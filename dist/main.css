@@ -20,16 +20,28 @@
   animation: neon-pulse 0.2s ease-in-out infinite;
 }
 
-select {
-  -webkit-appearance: base-select;
-     -moz-appearance: base-select;
-          appearance: base-select;
-}
 select option:first-of-type {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-radius: 8px 8px 0 0;
 }
 select option:last-of-type {
   border-radius: 0 0 8px 8px;
+}
+select ::picker(select) {
+  padding: 0;
+  position-anchor: --html;
+  margin-top: 5px;
+  border: 2px solid hotpink;
+  background: white;
+  border-radius: 5px;
+  font-weight: 400;
+  bottom: 0;
+  width: 100%;
+  translate: 0 100dvh;
+  transition: translate 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s, display 0.5s;
+  transition-behavior: allow-discrete;
 }
 
 @keyframes neon-idle {
@@ -42,10 +54,10 @@ select option:last-of-type {
 }
 @keyframes neon-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px #ff00ff, inset 0 0 20px #fff;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px #ff00ff, inset 0 0 20px #ff00ff;
   }
   50% {
-    box-shadow: 0 0 30px #ff00ff, 0 0 50px #ff00ff, 0 0 70px #ff00ff, 0 0 100px #ff00ff, inset 0 0 30px #fff;
+    box-shadow: 0 0 30px #ff00ff, 0 0 50px #ff00ff, 0 0 70px #ff00ff, 0 0 100px #ff00ff, inset 0 0 30px #ff00ff;
   }
 }
 body.dark-mode {
@@ -86,8 +98,8 @@ body.dark-mode canvas {
   box-shadow: inset 0 0 20px rgba(63, 216, 255, 0.15);
 }
 body.dark-mode .neon-btn {
-  border-color: #3fd8ff;
-  color: #3fd8ff;
+  border-color: #ff2df2;
+  color: #ff2df2;
   box-shadow: 0 0 12px rgba(63, 216, 255, 0.8), inset 0 0 12px rgba(63, 216, 255, 0.5);
 }
 body.dark-mode .neon-btn:hover {
@@ -181,6 +193,7 @@ canvas {
   padding: 10px 20px;
 }
 .panel-left ul li .neon-btn {
+  padding: 10px 0;
   display: block;
   margin: 0;
   width: 100%;
