@@ -4,9 +4,9 @@ import { dessinerTete, dessinerCorps } from "../canvas/canvas.js";
 
 export default class Snake {
     constructor(x = 7, y = 9, size = 30) {
-        this.yBody1 = x - 1
-        this.yBody2 = y - 2
-        this.segments = [{ x, y }, { x, ybody1 }, { x, ybody2 }];
+        let yBody1 = x - 1
+        let yBody2 = y - 2
+        this.segments = [{ x, y }, { x, yBody1 }, { x, yBody2 }];
         this.dx = 0;
         this.dy = 1;
         this._direction = "haut"
